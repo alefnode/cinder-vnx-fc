@@ -86,7 +86,7 @@ def storage_backend(rel_id=None):
         raise
     # add_source(navicli_source, navicli_key)
 
-    os.system('find /var/lib/juju -type d -name "navicli_7.33.2.0.51-0ubuntu0.14.04.1-ubuntu12.04.1-ppa2_amd64.deb" -exec sudo dpkg -i {} \;')
+    os.system('find /var/lib/juju -type d -name "navicli_7.33.2.0.51-amd64.deb" -exec sudo dpkg -i {} \;')
 
     # update and install packages
     apt_update()
