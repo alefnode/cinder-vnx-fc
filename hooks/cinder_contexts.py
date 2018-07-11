@@ -45,8 +45,10 @@ class VNXSubordinateContext(OSContextGenerator):
         ctxt.append(('volume_backend_name', service))
         naviseccli = '/opt/Navisphere/bin/naviseccli'
         ctxt.append(('naviseccli_path', naviseccli))
-        volume_driver = 'cinder.volume.drivers.emc.emc_cli_iscsi.EMCCLIISCSIDriver'
+        volume_driver = 'cinder.volume.drivers.dell_emc.vnx.driver.VNXDriver'
         ctxt.append(('volume_driver', volume_driver))
+        storage_protocol = 'fc'
+        ctxt.append(('storage_protocol', storage_protocol))
         return {
             "cinder": {
                 "/etc/cinder/cinder.conf": {

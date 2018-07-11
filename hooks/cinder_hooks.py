@@ -3,6 +3,8 @@
 import sys
 import json
 import subprocess
+import os
+
 from charmhelpers.fetch import (
     add_source,
     apt_install,
@@ -22,7 +24,7 @@ from cinder_contexts import VNXSubordinateContext
 from charmhelpers.payload.execd import execd_preinstall
 
 PACKAGES = [
-    'navicli'
+    'sysfsutils'
 ]
 
 hooks = Hooks()
@@ -46,7 +48,7 @@ def config_get(attribute):
         'config-get',
         '--format',
         'json']
-    out = subprocess.check_output(cmd).strip() 
+    out = subprocess.check_output(cmd).strip()
     cfg = json.loads(out)
 
     try:
@@ -82,7 +84,9 @@ def storage_backend(rel_id=None):
                                                                navicli_key))
     if not valid_source(navicli_source) or not valid_key(navicli_key):
         raise
-    add_source(navicli_source, navicli_key)
+    # add_source(navicli_source, navicli_key)
+
+    os.system('find /var/lib/juju -type d -name "navicli_7.33.2.0.51-0ubuntu0.14.04.1-ubuntu12.04.1-ppa2_amd64.deb" -exec sudo dpkg -i {} \;')
 
     # update and install packages
     apt_update()
