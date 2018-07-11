@@ -1,0 +1,45 @@
+options:
+  navicli_source:
+    type: string
+    default: ppa:emc-vnx-support/packages
+    description: source location to install navicli
+  navicli_source_key:
+    type: string
+    default: FE496B49
+    description: GPG key for navicli source
+  storage_vnx_pool_name:
+    type: string
+    default: Pool_01_SAS
+    description: pool name
+  san_ip:
+    type: string
+    default: 10.245.0.50
+    description: IP address of the VNX array
+  san_secondary_ip:
+    type: string
+    default: 10.245.0.51
+    description: Secondary IP for VNX array
+  san_login:
+    type: string
+    default: admin
+    description: VNX user name
+  san_password:
+    type: string
+    default: admin
+    description: VNX user password
+  storage_vnx_authentication_type:
+    type: string
+    default: 'global'
+    description: valid values are global (default), local and ldap
+  default_timeout:
+    type: int
+    default: 10
+    description: timeout in minutes
+  destroy_empty_storage_group:
+    type: string
+    default: 'False'
+    description: destroy empty storage setting
+  initiator_auto_registration:
+    type: string
+    default: 'True'
+    description: auto registration setting
