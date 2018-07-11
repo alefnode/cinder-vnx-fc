@@ -1,15 +1,17 @@
-name: cinder-vnx
-summary: EMC VNX integration for OpenStack Block Storage
+name: cinder-vnx-fc
+summary: EMC VNX (FC) integration for OpenStack Block Storage
 maintainers:
- - Ashley Lai <ashley.lai@canonical.com>
- - Marco Ceppi <marco.ceppi@canonical.com>
+ - Adrian Campos <adriancampos@teachelp.com>
 description: |
  Cinder is the block storage service for the Openstack project.
  .
- This charm provides a VNX storage backend for Cinder
+ This charm provides a EMC VNX storage backend for Cinder (FibberChannel)
 tags:
   - openstack
   - storage
+  - EMC
+  - VNX
+  - cinder
 subordinate: true
 provides:
   storage-backend:
@@ -19,3 +21,5 @@ requires:
   juju-info:
     interface: juju-info
     scope: container
+series:
+  - xenial
